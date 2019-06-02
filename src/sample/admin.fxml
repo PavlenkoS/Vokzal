@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="550.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminController">
+   <children>
+      <TextField fx:id="tf1" layoutX="193.0" layoutY="47.0" />
+      <TextField fx:id="tf2" layoutX="193.0" layoutY="112.0" />
+      <TextField fx:id="tf3" layoutX="193.0" layoutY="176.0" />
+      <TextField fx:id="tf4" layoutX="193.0" layoutY="243.0" />
+      <TextField fx:id="tf5" layoutX="193.0" layoutY="308.0" />
+      <DatePicker fx:id="date1" layoutX="193.0" layoutY="380.0" />
+      <DatePicker fx:id="date2" layoutX="193.0" layoutY="445.0" />
+      <Label layoutX="57.0" layoutY="51.0" text="Номер" />
+      <Label layoutX="57.0" layoutY="116.0" text="Відправлення" />
+      <Label layoutX="57.0" layoutY="180.0" text="Прибуття" />
+      <Label layoutX="57.0" layoutY="247.0" text="Вільних місць" />
+      <Label layoutX="57.0" layoutY="312.0" text="Ціна місця" />
+      <Label layoutX="57.0" layoutY="384.0" text="Відбуття" />
+      <Label layoutX="57.0" layoutY="449.0" text="Прибуття" />
+      <Button fx:id="bt1" layoutX="199.0" layoutY="510.0" mnemonicParsing="false" onAction="#addTrain" text="Додати" />
+   </children>
+</AnchorPane>
