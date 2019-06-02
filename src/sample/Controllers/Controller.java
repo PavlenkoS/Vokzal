@@ -4,21 +4,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import sample.Models.DataBase;
 import sample.Models.Train;
 
 import java.io.*;
-import java.time.LocalDate;
+import java.net.URL;
 import java.util.List;
 
 public class Controller {
     @FXML
     private Button bt1;
+    @FXML
+    private Button bt2;
     @FXML
     private TextArea ta1;
     @FXML
@@ -27,8 +26,13 @@ public class Controller {
     private TextField tfArr;
     @FXML
     private DatePicker date;
+    @FXML
+    private Label labelTickets;
+
+    public static int tickets=0;
 
     public void find() throws IOException, ClassNotFoundException {
+        ta1.setText("");
         List<Train> trains = DataBase.getTrains();
         ta1.appendText("Можливі поїзди на цю дату: ");
         for(Train t : trains){
@@ -41,14 +45,24 @@ public class Controller {
         }
     }
 
+    public void updateTickets(){
+        labelTickets.setText("Куплено квитків "+tickets);
+    }
+
     public void admin() throws IOException {
         if(tfDep.getText().equals("admin")&&tfArr.getText().equals("admin")){
-            FXMLDocumentController(new Stage(), "admin.fxml");
+            URL url = new File("src/sample/admin.fxml").toURL();
+            FXMLDocumentController(new Stage(), url);
         }
     }
 
-    protected void FXMLDocumentController(Stage stage, String file) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(file));
+    public void buy() throws IOException {
+        URL url = new File("src/sample/purchase.fxml").toURL();
+        FXMLDocumentController(new Stage(), url);
+    }
+
+    protected void FXMLDocumentController(Stage stage, URL file) throws IOException {
+        Parent root = FXMLLoader.load((file));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

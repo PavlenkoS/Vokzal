@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#updateTickets" prefHeight="401.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
    <children>
       <TextField fx:id="tfDep" layoutX="76.0" layoutY="72.0" />
       <TextField fx:id="tfArr" layoutX="613.0" layoutY="72.0" />
@@ -16,6 +16,8 @@
       <Label layoutX="645.0" layoutY="38.0" text="Місто прибуття" />
       <Label layoutX="370.0" layoutY="38.0" text="Дата відправлення" />
       <TextArea fx:id="ta1" layoutX="56.0" layoutY="181.0" prefHeight="200.0" prefWidth="723.0" />
-      <Button fx:id="bt1" layoutX="391.0" layoutY="135.0" mnemonicParsing="false" onAction="#find" onDragDetected="#admin" text="Пошук" />
+      <Button fx:id="bt1" layoutX="225.0" layoutY="141.0" mnemonicParsing="false" onAction="#find" onDragDetected="#admin" text="Пошук поїзда" />
+      <Label fx:id="labelTickets" layoutX="652.0" layoutY="145.0" text="Куплено Квитків 0" />
+      <Button fx:id="bt2" layoutX="517.0" layoutY="141.0" mnemonicParsing="false" onAction="#buy" text="Купити квиток" />
    </children>
 </AnchorPane>

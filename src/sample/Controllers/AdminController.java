@@ -40,8 +40,10 @@ public class AdminController {
         LocalDate dateDep = date1.getValue();
         LocalDate dateArr = date2.getValue();
 
-        Train train = new Train(num, dep, arr, dateDep, dateArr, places, cost);
-        trains.add(train);
+        for(int i = 0; i<30; i++) {
+            Train train = new Train(num, dep, arr, dateDep.plusDays(i), dateArr.plusDays(i), places, cost);
+            trains.add(train);
+        }
         DataBase.saveTrains(trains);
     }
 
