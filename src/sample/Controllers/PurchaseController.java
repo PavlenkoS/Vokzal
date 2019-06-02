@@ -24,7 +24,7 @@ public class PurchaseController {
         List<Train> trains = DataBase.getTrains();
         for (Train t : trains){
             if(date.getValue().equals(t.getDateDep())&&Integer.parseInt(tf1.getText())==(t.getTrainNumber())){
-                t.setFreePlace(t.getFreePlace()-1);
+                t.setFreePlace(t.getFreePlace()-Integer.parseInt(tf2.getText()));
                 Controller.tickets+=Integer.parseInt(tf2.getText());
                 break;
             }
