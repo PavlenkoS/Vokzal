@@ -11,6 +11,7 @@ import sample.Models.Train;
 
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -34,13 +35,21 @@ public class Controller {
     public void find() throws IOException, ClassNotFoundException {
         ta1.setText("");
         List<Train> trains = DataBase.getTrains();
-        ta1.appendText("Можливі поїзди на цю дату: ");
-        for(Train t : trains){
-            if(t.getDeparture().equals(tfDep.getText())
-                    && t.getArrival().equals(tfArr.getText())
-                    && t.getDateDep().equals(date.getValue())){
-                ta1.appendText("\nНомер "+t.getTrainNumber()+", прибуття "+t.getDateArrive()+",\nВільних місць "+
-                        t.getFreePlace()+", ціна за місце "+t.getPlaceCost());
+        if(tfDep.getText().equals("ALL")){
+            ta1.appendText("Всі поїзди: ");
+            for (Train t : trains){
+                ta1.appendText("\nНомер " + t.getTrainNumber() + " з " +t.getDeparture()+" до "
+                        +t.getArrival()+ ", відбуття " + t.getDateArrive());
+            }
+        }else {
+            ta1.appendText("Можливі поїзди на цю дату: ");
+            for (Train t : trains) {
+                if (t.getDeparture().equals(tfDep.getText())
+                        && t.getArrival().equals(tfArr.getText())
+                        && t.getDateDep().equals(date.getValue())) {
+                    ta1.appendText("\nНомер " + t.getTrainNumber() + ", прибуття " + t.getDateArrive() + ",\nВільних місць " +
+                            t.getFreePlace() + ", ціна за місце " + t.getPlaceCost());
+                }
             }
         }
     }
